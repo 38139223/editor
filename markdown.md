@@ -1,9 +1,13 @@
 # Markdown
-
-----
-
-Markdown is a text formatting syntax inspired on plain text email. In the words of its creator, [John Gruber][]:
-
+---
+title: 从中亚到中国：中国穆斯林史的个案考察
+id: 501
+comment: false
+categories:
+  - News/信息
+date: 2017-09-28 12:33:20
+tags: [中亚,中国，考察]
+---
 > The idea is that a Markdown-formatted document should be publishable as-is, as plain text, without looking like it’s been marked up with tags or formatting instructions.
 
 [John Gruber]: http://daringfireball.net/
