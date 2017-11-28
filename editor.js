@@ -7031,7 +7031,7 @@ function toggleBold(editor) {
     end = text.slice(startPoint.ch);
 
     start = start.replace(/^(.*)?(\*|\_){2}(\S+.*)?$/, '$1$3');
-    end = end.replace(/^(.*\S+)?(\*|\_){2}(\s+.*)?$/, '$1$3');
+    end = end.replace(/(\*|\_){2}/, '');// 这句是我修改过的
     startPoint.ch -= 2;
     endPoint.ch -= 2;
     cm.setLine(startPoint.line, start + end);
@@ -7066,7 +7066,7 @@ function toggleItalic(editor) {
     end = text.slice(startPoint.ch);
 
     start = start.replace(/^(.*)?(\*|\_)(\S+.*)?$/, '$1$3');
-    end = end.replace(/^(.*\S+)?(\*|\_)(\s+.*)?$/, '$1$3');
+    end = end.replace(/(\*|\_)/, ''); // 这句是我修改过的
     startPoint.ch -= 1;
     endPoint.ch -= 1;
     cm.setLine(startPoint.line, start + end);
@@ -7246,22 +7246,25 @@ function wordCount(data) {
 }
 
 var toolbar = [
-  {name: 'bold', action: toggleBold},
-  {name: 'italic', action: toggleItalic},
+  {name: 'bold', action: toggleBold, shortcut:'Toggle Bold(Cmd-B)'},
+  {name: 'italic', action: toggleItalic, shortcut:'Toggle Italic(Cmd-I)'},
   '|',
 
-  {name: 'quote', action: toggleBlockquote},
-  {name: 'unordered-list', action: toggleUnOrderedList},
-  {name: 'ordered-list', action: toggleOrderedList},
+  {name: 'quote', action: toggleBlockquote, shortcut: 'toggle Blockquote(Cmd-\')'},
+  {name: 'unordered-list', action: toggleUnOrderedList, shortcut:'Toggle UnorderList(Cmd-Alt-L)'},
+  {name: 'ordered-list', action: toggleOrderedList, shortcut:'Toggle OrderList(Cmd-L)'},
   '|',
 
-  {name: 'link', action: drawLink},
-  {name: 'image', action: drawImage},
+  {name: 'link', action: drawLink, shortcut:'Insert Link(Cmd-K)'},
+  {name: 'image', action: drawImage, shortcut: 'Insert Image(Cmd-Alt-I)'},
+  {name: 'play', action: drawVideo, shortcut: 'Insert Video'},
+  {name: 'music', action: drawAudio, shortcut: 'Insert Audio'},
+  {name: 'code', action: drawCode, shortcut: 'Insert Code(Cmd-Q)'},
   '|',
 
   {name: 'info', action: 'http://lab.lepture.com/editor/markdown'},
-  {name: 'preview', action: togglePreview},
-  {name: 'fullscreen', action: toggleFullScreen}
+  {name: 'preview', action: togglePreview, shortcut: 'Toggle Preview'},
+  {name: 'fullscreen', action: toggleFullScreen, shortcut: 'Toggle FullScreen'}
 ];
 
 /**
