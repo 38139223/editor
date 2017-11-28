@@ -36,10 +36,10 @@
   </head>
   <body>
     <div class="editor-wrapper">
-        <form name="form" method="get" action="http://zhengheforum.org/update">
-      <input class="title" type="text" placeholder="Title" >
+        <form name="form" method="post" action="http://zhengheforum.org/update">
+      <input class="title" name="title" type="text" placeholder="Title" >
       <!-- <textarea id="editor" placeholder="Content here ...."></textarea> -->
-      <input  id="editor" placeholder="Content here ....">
+      <input  id="editor" name="content" placeholder="Content here ....">
       <input type="submit" name="submit" value="提交"> 
       <!-- <a href="javascript:form.submit();">提交</a>  -->
         </form> 
